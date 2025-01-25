@@ -2,6 +2,9 @@ let movieInput=document.getElementById("movieInput");
 let btn=document.getElementById("btn");
 let top1=document.getElementById("top");
 
+
+
+
 function findMovie(){
     let movieName=movieInput.value;
     let url=`https://www.omdbapi.com/?t=${movieName}&apikey=4fbe5bae`;
@@ -48,5 +51,16 @@ function findMovie(){
 }
 
 btn.addEventListener("click",findMovie);
+
+movieInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        btn.click();
+    }
+});
+
+window.addEventListener("load", function() {
+    movieInput.focus();
+});
 
 // window.addEventListener("load",findMovie);
